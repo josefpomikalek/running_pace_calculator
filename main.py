@@ -11,3 +11,6 @@ def time_to_seconds(time):
 time_entered = input("Enter your time (use format 'h:mm:ss' or 'mm:ss'): ")
 print(time_entered)
 print(time_to_seconds(time_entered))
+
+# the possibility for m:ss format, e.g. 3:55
+# the options for 'hours' and 'm:ss'

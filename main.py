@@ -22,6 +22,12 @@ def time_to_seconds(time):
     return time_in_seconds
 
 
+def calculate_pace(time, distance):
+    pace = float(time / int(distance))
+    return pace
+
+
+distance_entered = input("Enter the distance in metres: ")
 time_entered = input("Enter your time (use format 'h:mm:ss' or 'mm:ss'): ")
 print(time_entered)
 print(time_to_seconds(time_entered))

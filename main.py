@@ -1,7 +1,8 @@
+from math import ceil
 
 def time_to_seconds(time):
 
-    """Transfer the time entered as a string to seconds"""
+    """Transfer the time entered as a string to seconds."""
     if len(time) == 8:  # For the time format hh:mm:ss
         hours = int(time[:2])
         minutes = int(time[3:5])
@@ -22,13 +23,20 @@ def time_to_seconds(time):
     return time_in_seconds
 
 
+"""Transfer the time entered in seconds to time format."""
+def seconds_to_time(seconds):
+    pass
+
+
 def calculate_pace(time, distance):
-    pace = float(time / int(distance))
+    pace = (time / float(distance))
     return pace
 
 
-distance_entered = input("Enter the distance in metres: ")
+distance_entered = input("Enter the distance in kilometres: ")
 time_entered = input("Enter your time (use format 'h:mm:ss' or 'mm:ss'): ")
 print(time_entered)
 print(time_to_seconds(time_entered))
+
+print(calculate_pace(time_to_seconds(time_entered), distance_entered))
 

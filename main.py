@@ -2,7 +2,7 @@ from math import floor
 
 def time_to_seconds(time):
 
-    """Transfer the time entered as a string to seconds."""
+    """Convert the time entered as a string into seconds."""
     if len(time) == 8:  # For the time format hh:mm:ss
         hours = int(time[:2])
         minutes = int(time[3:5])
@@ -23,7 +23,7 @@ def time_to_seconds(time):
     return time_in_seconds
 
 
-"""Transfer the time entered in seconds to time format."""
+"""Convert the time entered in seconds into time format."""
 def seconds_to_time(seconds_count):
     hours = seconds_count // 3600
     minutes = floor((seconds_count - (hours * 3600)) / 60)

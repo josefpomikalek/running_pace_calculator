@@ -1,7 +1,7 @@
 from math import floor
 
-def time_to_seconds(time):
 
+def time_to_seconds(time):
     """Convert the time entered as a string into seconds."""
     if len(time) == 8:  # For the time format hh:mm:ss
         hours = int(time[:2])
@@ -23,14 +23,17 @@ def time_to_seconds(time):
     return time_in_seconds
 
 
-"""Convert the time entered in seconds into time format."""
 def seconds_to_time(seconds_count):
+    """Convert the time entered in seconds into time format."""
     hours = seconds_count // 3600
     minutes = floor((seconds_count - (hours * 3600)) / 60)
     seconds = seconds_count - (hours * 3600 + minutes * 60)
-    print(hours)
-    print(minutes)
-    print(seconds)
+    if minutes < 10:
+        minutes = f"0{minutes}"
+    if seconds < 10:
+        seconds = f"0{seconds}"
+    time_format = f"{hours}:{minutes}:{seconds}"
+    return time_format
 
 
 def calculate_pace(time, distance):
@@ -45,4 +48,4 @@ def calculate_pace(time, distance):
 #
 # print(calculate_pace(time_to_seconds(time_entered), distance_entered))
 
-seconds_to_time(4128)
+print(seconds_to_time(4128))

@@ -37,9 +37,13 @@ def seconds_to_time(seconds_count):
 
 
 def calculate_pace(time, distance):
-    pace = (time / float(distance))
-    return pace
+    pace_in_seconds = time_to_seconds(time) / distance
+    pace = seconds_to_time(pace_in_seconds)
+    print(pace_in_seconds)
+    print(pace)
 
+print(seconds_to_time(183.9))
+calculate_pace("30:39", 10)
 
 # distance_entered = input("Enter the distance in kilometres: ")
 # time_entered = input("Enter your time (use format 'h:mm:ss' or 'mm:ss'): ")

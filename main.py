@@ -25,7 +25,7 @@ def time_to_seconds(time):
 
 def seconds_to_time(seconds_count):
     """Convert the time entered in seconds into time format."""
-    hours = seconds_count // 3600
+    hours = int(seconds_count // 3600)
     minutes = floor((seconds_count - (hours * 3600)) / 60)
     seconds = seconds_count - (hours * 3600 + minutes * 60)
     if minutes < 10:
@@ -43,7 +43,9 @@ def calculate_pace(time, distance):
     print(pace)
 
 print(seconds_to_time(183.9))
-calculate_pace("30:39", 10)
+
+
+# calculate_pace("30:39", 10)
 
 # distance_entered = input("Enter the distance in kilometres: ")
 # time_entered = input("Enter your time (use format 'h:mm:ss' or 'mm:ss'): ")

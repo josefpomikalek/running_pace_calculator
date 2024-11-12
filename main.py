@@ -28,11 +28,23 @@ def seconds_to_time(seconds_count):
     hours = int(seconds_count // 3600)
     minutes = floor((seconds_count - (hours * 3600)) / 60)
     seconds = seconds_count - (hours * 3600 + minutes * 60)
-    if minutes < 10:
-        minutes = f"0{minutes}"
+    if type(seconds) is float:
+        seconds = round(seconds, 1)
+    time_format = ""
     if seconds < 10:
-        seconds = f"0{seconds}"
-    time_format = f"{hours}:{minutes}:{seconds}"
+        if hours == 0:
+            time_format = f"{minutes}:0{seconds}"
+        elif hours > 0 and minutes < 10:
+            time_format = f"{hours}:0{minutes}:0{seconds}"
+        elif hours > 0 and minutes > 9:
+            time_format = f"{hours}:{minutes}:0{seconds}"
+    else:
+        if hours == 0:
+            time_format = f"{minutes}:{seconds}"
+        elif hours > 0 and minutes < 10:
+            time_format = f"{hours}:0{minutes}:{seconds}"
+        elif hours > 0 and minutes > 9:
+            time_format = f"{hours}:{minutes}:{seconds}"
     return time_format
 
 
@@ -42,10 +54,8 @@ def calculate_pace(time, distance):
     print(pace_in_seconds)
     print(pace)
 
-print(seconds_to_time(183.9))
 
-
-# calculate_pace("30:39", 10)
+calculate_pace("30:39", 10)
 
 # distance_entered = input("Enter the distance in kilometres: ")
 # time_entered = input("Enter your time (use format 'h:mm:ss' or 'mm:ss'): ")

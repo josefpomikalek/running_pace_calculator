@@ -1,6 +1,19 @@
 from math import floor
 
 
+paces = {
+    "p_1500m" : "4:33",
+    "p_3km" : "4:45",
+    "p_5km" : "4:58",
+    "p_10km" : "5:18",
+    "p_anp" : "5:27",
+    "p_end3" : "5:37",
+    "p_mar" : "5:44",
+    "p_end2" : "6:00",
+    "p_end1" : "6:49",
+    "p_rec" : "7:16"
+}
+
 def time_to_seconds(time):
     """Convert the time entered as a string into seconds."""
     if len(time) == 8:  # For the time format hh:mm:ss
@@ -54,12 +67,18 @@ def calculate_pace(distance, time):
     return pace
 
 
+def replacing_dot_to_comma(text):
+    text = str(text)
+    text_with_comma = text.replace(".", ",")
+    return text_with_comma
+
+
 distance_entered = float(input("Enter the distance in kilometres: "))
 time_entered = input("Enter your time (use format 'h:mm:ss' or 'mm:ss' or 'm:ss'): ")
-print(f"Distance: {distance_entered} km")
+print(f"Distance: {replacing_dot_to_comma(distance_entered)} km")
 if len(time_entered) > 5:
     print(f"Time: {time_entered} h")
 else:
     print(f"Time: {time_entered} min")
 
-print(f"Your pace is {calculate_pace(distance_entered, time_entered)} minutes per kilometer.")
+print(f"Your pace is {replacing_dot_to_comma(calculate_pace(distance_entered, time_entered))} minutes per kilometer.")

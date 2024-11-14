@@ -48,20 +48,18 @@ def seconds_to_time(seconds_count):
     return time_format
 
 
-def calculate_pace(time, distance):
+def calculate_pace(distance, time):
     pace_in_seconds = time_to_seconds(time) / distance
     pace = seconds_to_time(pace_in_seconds)
-    print(pace_in_seconds)
-    print(pace)
+    return pace
 
 
-calculate_pace("30:39", 10)
+distance_entered = float(input("Enter the distance in kilometres: "))
+time_entered = input("Enter your time (use format 'h:mm:ss' or 'mm:ss' or 'm:ss'): ")
+print(f"Distance: {distance_entered} km")
+if len(time_entered) > 5:
+    print(f"Time: {time_entered} h")
+else:
+    print(f"Time: {time_entered} min")
 
-# distance_entered = input("Enter the distance in kilometres: ")
-# time_entered = input("Enter your time (use format 'h:mm:ss' or 'mm:ss'): ")
-# print(time_entered)
-# print(time_to_seconds(time_entered))
-#
-# print(calculate_pace(time_to_seconds(time_entered), distance_entered))
-
-print(seconds_to_time(4128))
+print(f"Your pace is {calculate_pace(distance_entered, time_entered)} minutes per kilometer.")

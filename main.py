@@ -1,18 +1,6 @@
 from math import floor
+from running_pace import pace_10km
 
-
-paces = {
-    "p_1500m" : "4:33",
-    "p_3km" : "4:45",
-    "p_5km" : "4:58",
-    "p_10km" : "5:18",
-    "p_anp" : "5:27",
-    "p_end3" : "5:37",
-    "p_mar" : "5:44",
-    "p_end2" : "6:00",
-    "p_end1" : "6:49",
-    "p_rec" : "7:16"
-}
 
 def time_to_seconds(time):
     """Convert the time entered as a string into seconds."""
@@ -63,7 +51,7 @@ def seconds_to_time(seconds_count):
 
 def calculate_pace(distance, time):
     pace_in_seconds = time_to_seconds(time) / distance
-    pace = seconds_to_time(pace_in_seconds)
+    pace = (seconds_to_time(pace_in_seconds))
     return pace
 
 
@@ -71,6 +59,17 @@ def replacing_dot_to_comma(text):
     text = str(text)
     text_with_comma = text.replace(".", ",")
     return text_with_comma
+
+
+def find_index(pace):
+    """Find an index of a current pace in the proper list or the first faster pace in the proper list."""
+    if pace in pace_10km:
+        return(pace_10km.index(pace))
+    else:
+        while pace not in pace_10km:
+            pace = time_to_seconds(pace) - 1
+            pace = seconds_to_time(pace)
+        return pace_10km.index(pace)
 
 
 distance_entered = float(input("Enter the distance in kilometres: "))
@@ -82,3 +81,7 @@ else:
     print(f"Time: {time_entered} min")
 
 print(f"Your pace is {replacing_dot_to_comma(calculate_pace(distance_entered, time_entered))} minutes per kilometer.")
+
+pace = "4:45"
+
+print(find_index(pace))

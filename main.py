@@ -1,5 +1,5 @@
 from math import floor, ceil
-from running_pace import pace_10km
+from running_pace import pace_10km, pace_ANP
 
 
 def time_to_seconds(time):
@@ -55,7 +55,8 @@ def calculate_pace(distance, time):
     return pace
 
 
-# This function can be used if the pace is calculated with an accuracy on 1/10s (not used ceil() in calculate_pace().
+# This function can be used if the pace is calculated with an accuracy on 1/10s (not used ceil() in calculate_pace() or
+# if the format of distance should be e.g. "1,5 km", not "1.5 km".
 def replacing_dot_to_comma(text):
     text = str(text)
     text_with_comma = text.replace(".", ",")
@@ -81,8 +82,8 @@ if len(time_entered) > 5:
 else:
     print(f"Time: {time_entered} min")
 
-print(f"Your pace is {replacing_dot_to_comma(calculate_pace(distance_entered, time_entered))} minutes per kilometer.")
+print(f"Your pace is {(calculate_pace(distance_entered, time_entered))} minutes per kilometer.")
 
-pace = "4:45"
+pace_10km_index = find_index(calculate_pace(distance_entered, time_entered))
 
-print(find_index(pace))
+print(f"Your ANP pace is {pace_ANP[pace_10km_index]} minutes per kilometer.")

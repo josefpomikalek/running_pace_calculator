@@ -1,4 +1,4 @@
-from math import floor
+from math import floor, ceil
 from running_pace import pace_10km
 
 
@@ -50,11 +50,12 @@ def seconds_to_time(seconds_count):
 
 
 def calculate_pace(distance, time):
-    pace_in_seconds = time_to_seconds(time) / distance
+    pace_in_seconds = ceil(time_to_seconds(time) / distance)
     pace = (seconds_to_time(pace_in_seconds))
     return pace
 
 
+# This function can be used if the pace is calculated with an accuracy on 1/10s (not used ceil() in calculate_pace().
 def replacing_dot_to_comma(text):
     text = str(text)
     text_with_comma = text.replace(".", ",")

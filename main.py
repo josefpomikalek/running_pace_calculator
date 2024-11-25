@@ -114,7 +114,7 @@ def generate_dates(start_date, end_date):
     date_list = []
     current_date = start
     while current_date <= end:
-        date_list.append(current_date.strftime("%d.%m."))
+        date_list.append(current_date.strftime("%a %d.%m."))
         current_date += timedelta(days=1)
 
     return date_list
@@ -123,8 +123,8 @@ def generate_dates(start_date, end_date):
 # Testování funkce
 start_date = "18.11.2024"
 end_date = "01.12.2024"
+
 dates = generate_dates(start_date, end_date)
 
-# Výpis výsledků
 for date in dates:
     print(date)

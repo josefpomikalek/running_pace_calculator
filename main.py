@@ -85,8 +85,6 @@ class Training:
         self.jogging = "(200m)"
         self.pause = "(3 mins)"
 
-
-
 distance_entered = float(input("Enter the distance in kilometres: "))
 time_entered = input("Enter your time (use format 'h:mm:ss' or 'mm:ss' or 'm:ss'): ")
 print(f"Distance: {replacing_dot_to_comma(distance_entered)} km")

@@ -1,5 +1,5 @@
 from math import floor, ceil
-from running_pace import pace_10km, pace_ANP
+from running_pace import pace_10km, pace_ANP, pace_recovery, pace_ER1
 from datetime import datetime, timedelta
 
 
@@ -78,15 +78,16 @@ def find_index(pace):
 class Training:
 
     def __init__(self):
-        self.warmup = "2-3 km easy run"
+        self.warmup = f"2-3 km easy run [{pace_recovery[pace_10km_index]}-{pace_ER1[pace_10km_index]}/km]"
         self.strides = "5x 100m"
         self.intervals = "3x 2km"
-        self.pace = f"[{pace_ANP[pace_10km_index]}]"
+        self.pace = f"{pace_ANP[pace_10km_index]}"
         self.jogging = "(200m)"
         self.pause = "(3 mins)"
+        self.cooldown = "2 km easy run"
 
     def do_interval_training(self):
-        print(f"{self.warmup}, {self.strides}, {self.intervals} {self.pause} {self.pace}")
+        print(f"{self.warmup}, {self.strides}, {self.intervals} {self.pause} [avg pace {self.pace}/km]")
 
 
 distance_entered = float(input("Enter the distance in kilometres: "))

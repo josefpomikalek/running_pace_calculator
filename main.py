@@ -85,6 +85,10 @@ class Training:
         self.jogging = "(200m)"
         self.pause = "(3 mins)"
 
+    def do_interval_training(self):
+        print(f"{self.warmup}, {self.strides}, {self.intervals} {self.pause} {self.pace}")
+
+
 distance_entered = float(input("Enter the distance in kilometres: "))
 time_entered = input("Enter your time (use format 'h:mm:ss' or 'mm:ss' or 'm:ss'): ")
 print(f"Distance: {replacing_dot_to_comma(distance_entered)} km")
@@ -98,6 +102,10 @@ print(f"Your pace is {(calculate_pace(distance_entered, time_entered))} minutes 
 pace_10km_index = find_index(calculate_pace(distance_entered, time_entered))
 
 print(f"Your ANP pace is {pace_ANP[pace_10km_index]} minutes per kilometer.")
+
+tr = Training()
+
+tr.do_interval_training()
 
 
 

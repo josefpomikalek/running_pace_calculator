@@ -75,56 +75,74 @@ def find_index(pace):
         return pace_10km.index(pace)
 
 
-# distance_entered = float(input("Enter the distance in kilometres: "))
-# time_entered = input("Enter your time (use format 'h:mm:ss' or 'mm:ss' or 'm:ss'): ")
-# print(f"Distance: {replacing_dot_to_comma(distance_entered)} km")
-# if len(time_entered) > 5:
-#     print(f"Time: {time_entered} h")
-# else:
-#     print(f"Time: {time_entered} min")
-#
-# print(f"Your pace is {(calculate_pace(distance_entered, time_entered))} minutes per kilometer.")
-#
-# pace_10km_index = find_index(calculate_pace(distance_entered, time_entered))
-#
-# print(f"Your ANP pace is {pace_ANP[pace_10km_index]} minutes per kilometer.")
+class Training:
 
-starting_date = input("What is the starting date of your training plan? (enter the date in format DD.MM.YYYY) ")
-print(starting_date)
-if starting_date[1] == ".":
-    date_day = starting_date[:1]
+    def __init__(self):
+        self.warmup = "2-3 km easy run"
+        self.strides = "5x 100m"
+        self.intervals = "3x 2km"
+        self.pace = f"[{pace_ANP[pace_10km_index]}]"
+        self.jogging = "(200m)"
+        self.pause = "(3 mins)"
+
+
+
+distance_entered = float(input("Enter the distance in kilometres: "))
+time_entered = input("Enter your time (use format 'h:mm:ss' or 'mm:ss' or 'm:ss'): ")
+print(f"Distance: {replacing_dot_to_comma(distance_entered)} km")
+if len(time_entered) > 5:
+    print(f"Time: {time_entered} h")
 else:
-    date_day = starting_date[:2]
-print(date_day)
-if starting_date[-8] == ".":
-    date_month = int(starting_date[-7] + starting_date[-6])
-elif starting_date[-7] == ".":
-    date_month = int(starting_date[-6])
-print(date_month)
-date_year = int(starting_date[-4:])
-print(date_year)
+    print(f"Time: {time_entered} min")
+
+print(f"Your pace is {(calculate_pace(distance_entered, time_entered))} minutes per kilometer.")
+
+pace_10km_index = find_index(calculate_pace(distance_entered, time_entered))
+
+print(f"Your ANP pace is {pace_ANP[pace_10km_index]} minutes per kilometer.")
 
 
-def generate_dates(start_date, end_date):
-    # Převeď počáteční a koncové datum na datetime objekty
-    start = datetime.strptime(start_date, "%d.%m.%Y")
-    end = datetime.strptime(end_date, "%d.%m.%Y")
-
-    # Vytvoř seznam s datumy ve formátu "dd.mm."
-    date_list = []
-    current_date = start
-    while current_date <= end:
-        date_list.append(current_date.strftime("%a %d.%m."))
-        current_date += timedelta(days=1)
-
-    return date_list
 
 
-# Testování funkce
-start_date = "18.11.2024"
-end_date = "01.12.2024"
 
-dates = generate_dates(start_date, end_date)
 
-for date in dates:
-    print(date)
+# starting_date = input("What is the starting date of your training plan? (enter the date in format DD.MM.YYYY) ")
+# print(starting_date)
+# if starting_date[1] == ".":
+#     date_day = starting_date[:1]
+# else:
+#     date_day = starting_date[:2]
+# print(date_day)
+# if starting_date[-8] == ".":
+#     date_month = int(starting_date[-7] + starting_date[-6])
+# elif starting_date[-7] == ".":
+#     date_month = int(starting_date[-6])
+# print(date_month)
+# date_year = int(starting_date[-4:])
+# print(date_year)
+#
+#
+# def generate_dates(start_date, end_date):
+#     # Převeď počáteční a koncové datum na datetime objekty
+#     start = datetime.strptime(start_date, "%d.%m.%Y")
+#     end = datetime.strptime(end_date, "%d.%m.%Y")
+#
+#     # Vytvoř seznam s datumy ve formátu "dd.mm."
+#     date_list = []
+#     current_date = start
+#     while current_date <= end:
+#         date_list.append(current_date.strftime("%a %d.%m."))
+#         current_date += timedelta(days=1)
+#
+#     return date_list
+#
+#
+# # Testování funkce
+# start_date = "18.11.2024"
+# end_date = "01.12.2024"
+#
+# dates = generate_dates(start_date, end_date)
+#
+# for date in dates:
+#     print(date)
+

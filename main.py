@@ -65,12 +65,12 @@ def replacing_dot_to_comma(text):
 
 
 def find_index(pace):
-    """Find an index of a current pace in the proper list or the closest faster pace (see '-1') in the proper list."""
+    """Find an index of a current pace in the proper list or the closest slower pace (see '+1') in the proper list."""
     if pace in pace_10km:
         return(pace_10km.index(pace))
     else:
         while pace not in pace_10km:
-            pace = time_to_seconds(pace) - 1
+            pace = time_to_seconds(pace) + 1
             pace = seconds_to_time(pace)
         return pace_10km.index(pace)
 

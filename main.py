@@ -87,7 +87,7 @@ class Training:
         self.cooldown = "2 km easy run"
 
     def do_interval_training(self):
-        print(f"{self.warmup}, {self.strides}, {self.intervals} {self.pause} [avg pace {self.pace}/km]")
+        print(f"{self.warmup}, {self.strides}, {self.intervals} {self.pause} [avg pace {self.pace}/km], {self.cooldown}")
 
 
 distance_entered = float(input("Enter the distance in kilometres: "))

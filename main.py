@@ -79,12 +79,12 @@ class Training:
 
     def __init__(self):
         self.warmup = f"2-3 km easy run [{pace_recovery[pace_10km_index]}-{pace_ER1[pace_10km_index]}/km]"
-        self.strides = "5x 100m"
+        self.strides = "strides 5x 100m (100)"
         self.intervals = "3x 2km"
         self.pace = f"{pace_ANP[pace_10km_index]}"
-        self.jogging = "(200m)"
+        self.jogging = "(200)"
         self.pause = "(3 mins)"
-        self.cooldown = "2 km easy run"
+        self.cooldown = f"2 km easy run (not faster than {pace_recovery[pace_10km_index]}/km)"
 
     def do_interval_training(self):
         print(f"{self.warmup}, {self.strides}, {self.intervals} {self.pause} [avg pace {self.pace}/km], {self.cooldown}")
